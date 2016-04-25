@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A set of mark and recapture estimator functions based on Lincoln-Peterson/Chapman/Bayesian methods.",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbleslie/Mark-and-Recapture"
+  },
   "scripts": {
     "test": "node test.js",
     "build": "babel src --presets babel-preset-es2015 --out-dir lib",
@@ -15,7 +19,7 @@
     "Peterson",
     "Chapman",
     "Bayesian"
-  ],gi
+  ],
   "author": "Cameron Leslie <cameronleslie@gmail.com>",
   "license": "MIT",
   "devDependencies": {
