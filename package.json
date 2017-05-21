@@ -1,6 +1,6 @@
 {
   "name": "mark-and-recapture",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A set of mark and recapture estimator functions based on Lincoln-Peterson/Chapman/Bayesian methods.",
   "main": "lib/index.js",
   "repository": {
