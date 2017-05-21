@@ -1,34 +1,22 @@
 'use strict'
 //https://en.wikipedia.org/wiki/Mark_and_recapture
-function estimateLincoln(capInital, capCurrent, capIntersection) {
+const estimate = capInital => capCurrent => capIntersection => {
   //https://en.wikipedia.org/wiki/Lincoln_index
-  let lincolnIndex = Math.trunc((capInital * capCurrent) / capIntersection);
-  return {
-    estimate: lincolnIndex
-  };
-}
-
-function estimateChapman(capInital, capCurrent, capIntersection) {
+  const lincolnIndex = Math.trunc((capInital * capCurrent) / capIntersection);
   //https://en.wikipedia.org/wiki/Lincoln_index
-  let chapmanIndex = Math.trunc(((capInital + 1) * (capCurrent + 1)) / (capIntersection + 1) - 1);
-  return {
-    estimate: chapmanIndex
-  };
-}
-
-function estimateBayesian(capInital, capCurrent, capIntersection) {
+  const chapmanIndex = Math.trunc(((capInital + 1) * (capCurrent + 1)) / (capIntersection + 1) - 1);
   //https://en.wikipedia.org/wiki/Mark_and_recapture#Bayesian_estimate
-  let basyesianEstimateMean = Math.trunc(((capInital - 1) * (capCurrent - 1)) / (capIntersection - 2));
-  let basyesianEstimateStandardDeviation = Math.sqrt(((capCurrent - 1) * (capInital - 1) * (capCurrent  - capIntersection + 1) * (capInital - capIntersection + 1)) / ((capIntersection - 2) * (capIntersection - 2) * (capIntersection - 3)));
+  const basyesianEstimateMean = Math.trunc(((capInital - 1) * (capCurrent - 1)) / (capIntersection - 2));
+  const basyesianEstimateStandardDeviation = Math.sqrt(((capCurrent - 1) * (capInital - 1) * (capCurrent  - capIntersection + 1) * (capInital - capIntersection + 1)) / ((capIntersection - 2) * (capIntersection - 2) * (capIntersection - 3)));
 
   return {
-    estimate: basyesianEstimateMean,
-    deviation: basyesianEstimateStandardDeviation
+    lincolnIndex: lincolnIndex,
+    chapmanIndex: chapmanIndex,
+    basyesianEstimate: basyesianEstimateMean,
+    basyesianEstimateStandardDeviation: basyesianEstimateStandardDeviation
   };
 }
 
 export {
-  estimateLincoln, 
-  estimateChapman,
-  estimateBayesian
+  estimate
 };
